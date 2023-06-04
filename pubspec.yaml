@@ -70,6 +70,10 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  assets:
+    - assets/images/vizola_logo.png
+    - assets/images/background.png
+
   shaders:
     - assets/shaders/orb_shader.frag
     - assets/shaders/ui_glitch.frag
