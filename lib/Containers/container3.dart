@@ -24,7 +24,7 @@ class _Container3State extends State<Container3> {
         'ALWAYS ONLINE',
         'Real-time \nsupport \nwith cloud',
         'Tellus lacus morbi sagittis lacus in. Amet nisl at \nmauris enim accumsan nisi, tincidunt vel. \nEnim ipsum, amet quis ullamcorper eget ut.',
-        'images/background.png',
+        background,
         true,context);
   }
 
