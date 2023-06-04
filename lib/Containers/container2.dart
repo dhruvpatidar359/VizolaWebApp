@@ -26,7 +26,7 @@ class _Container2State extends State<Container2> {
         'ALWAYS ONLINE',
         'Real-time \nsupport \nwith cloud',
         'Tellus lacus morbi sagittis lacus in. Amet nisl at \nmauris enim accumsan nisi, tincidunt vel. \nEnim ipsum, amet quis ullamcorper eget ut.',
-        '/images/background.png',
+        'images/background.png',
         false,context);
   }
 
