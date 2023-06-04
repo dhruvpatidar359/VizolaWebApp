@@ -45,6 +45,7 @@ dependencies:
   provider: ^6.0.5
   metaballs: ^1.4.2
   glassmorphism_ui: ^0.3.0
+  hover_card: ^1.1.1
 
 
 dev_dependencies:
@@ -71,6 +72,7 @@ flutter:
 
   shaders:
     - assets/shaders/orb_shader.frag
+    - assets/shaders/ui_glitch.frag
 
 
 

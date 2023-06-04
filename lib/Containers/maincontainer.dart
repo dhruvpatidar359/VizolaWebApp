@@ -33,7 +33,7 @@ class _Container1State extends State<Container1> {
 
   Widget DesktopContainer1() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: w! / 10, vertical: 20),
+      margin: EdgeInsets.symmetric(horizontal: w! / 20, vertical: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -121,7 +121,7 @@ class _Container1State extends State<Container1> {
               height: 543,
 
 
-              // child:  TitleScreen(),
+              child:  TitleScreen(),
 
             ),
           ),
