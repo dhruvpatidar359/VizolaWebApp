@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:footer/footer.dart';
+import 'package:footer/footer_view.dart';
 import 'package:metaballs/metaballs.dart';
-import 'package:webapp/Containers/maincontainer.dart';
+import 'package:webapp/Containers/container1.dart';
+import 'package:webapp/bars/footer/footer.dart';
 
 import 'Containers/container2.dart';
 import 'Containers/container3.dart';
+import 'bars/navbar.dart';
 import 'constants.dart';
-import 'navbar/navbar.dart';
+
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -64,6 +68,7 @@ class GlassyMetaballs extends StatelessWidget {
                 Container1(),
                 Container2(),
                 Container3(),
+    FooterBar()
               ],
             ),
           ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-
+import '../constants.dart';
 
 class TiltWidget extends StatefulWidget {
   final double yaxis;
@@ -8,7 +8,11 @@ class TiltWidget extends StatefulWidget {
   final String text;
   final String subText;
 
-  TiltWidget({required this.yaxis, required this.image, required this.text, required this.subText});
+  TiltWidget(
+      {required this.yaxis,
+      required this.image,
+      required this.text,
+      required this.subText});
 
   @override
   _TiltWidgetState createState() => _TiltWidgetState();
@@ -55,14 +59,14 @@ class _TiltWidgetState extends State<TiltWidget> {
                     double yvalue = widget.yaxis - details.localPosition.dx;
                     double xvalue = (MediaQuery.of(context).size.height / 2) -
                         details.localPosition.dy;
-                    print(xvalue);
+                    // print(xvalue);
                     if (yvalue <= borderValueY && yvalue >= -borderValueY) {
                       setState(() {
                         double oldRange = (borderValueY - (-borderValueY));
                         double newRange = (0.35 - (-0.35));
                         double newValue =
                             (((yvalue - (-borderValueY)) * newRange) /
-                                oldRange) +
+                                    oldRange) +
                                 (-0.35);
                         beginY = y;
                         y = newValue;
@@ -70,7 +74,7 @@ class _TiltWidgetState extends State<TiltWidget> {
                         oldRange = (borderValueX - (-borderValueX));
                         newRange = (0.35 - (-0.35));
                         newValue = (((-xvalue - (-borderValueX)) * newRange) /
-                            oldRange) +
+                                oldRange) +
                             (-0.35);
                         beginX = x;
                         x = newValue;
@@ -79,7 +83,7 @@ class _TiltWidgetState extends State<TiltWidget> {
                     }
                   },
                   onExit: (event) {
-                    print('exited');
+                    // print('exited');
                     setState(() {
                       y = 0.0;
                       x = 0.0;
@@ -91,8 +95,8 @@ class _TiltWidgetState extends State<TiltWidget> {
                   },
                   child: Stack(
                     children: [
-                      Container(
 
+                      Container(
                         height: 400,
                         width: 500,
                         decoration: BoxDecoration(
@@ -110,10 +114,7 @@ class _TiltWidgetState extends State<TiltWidget> {
                           transform: Matrix4.identity()
                             ..setEntry(3, 2, 0.001)
                             ..translate(0.0, 0.0, -20.0),
-                          child: Icon(
-                            Icons.favorite,
-                            color: Colors.red,
-                          ),
+
                         ),
                       ),
                       Positioned(
@@ -137,11 +138,7 @@ class _TiltWidgetState extends State<TiltWidget> {
                               ),
                               Row(
                                 children: [
-                                  Icon(
-                                    Icons.location_on,
-                                    color: textColor,
-                                    size: 13.0,
-                                  ),
+
                                   SizedBox(
                                     width: 3.0,
                                   ),
@@ -155,60 +152,7 @@ class _TiltWidgetState extends State<TiltWidget> {
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 5.0),
-                              Row(
-                                children: [
-                                  //SizedBox(width: 3.0,),
-                                  Icon(
-                                    Icons.star,
-                                    color: textColor,
-                                    size: 12.0,
-                                  ),
-                                  SizedBox(
-                                    width: 5.0,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: textColor,
-                                    size: 12.0,
-                                  ),
-                                  SizedBox(
-                                    width: 5.0,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: textColor,
-                                    size: 12.0,
-                                  ),
-                                  SizedBox(
-                                    width: 5.0,
-                                  ),
-                                  Icon(
-                                    Icons.star_half,
-                                    color: textColor,
-                                    size: 12.0,
-                                  ),
-                                  SizedBox(
-                                    width: 5.0,
-                                  ),
-                                  Icon(
-                                    Icons.star_border,
-                                    color: textColor,
-                                    size: 12.0,
-                                  ),
-                                  SizedBox(
-                                    width: 5.0,
-                                  ),
-                                  Text(
-                                    '3.5',
-                                    style: TextStyle(
-                                      fontSize: 12.0,
-                                      fontWeight: FontWeight.w500,
-                                      color: textColor,
-                                    ),
-                                  ),
-                                ],
-                              ),
+
                             ],
                           ),
                         ),

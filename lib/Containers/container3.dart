@@ -21,11 +21,11 @@ class _Container3State extends State<Container3> {
   Widget DesktopContainer3() {
 
     return CommonContainer(
-        'ALWAYS ONLINE',
-        'Real-time \nsupport \nwith cloud',
+        '',
+        'Create Once \n Earn forever',
         'Tellus lacus morbi sagittis lacus in. Amet nisl at \nmauris enim accumsan nisi, tincidunt vel. \nEnim ipsum, amet quis ullamcorper eget ut.',
-        background,
-        true,context);
+        money,
+        true,context,'Connect AND Earn','We are with you');
   }
 
 

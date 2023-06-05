@@ -23,11 +23,11 @@ class _Container2State extends State<Container2> {
 
 
     return CommonContainer(
-        'ALWAYS ONLINE',
-        'Real-time \nsupport \nwith cloud',
-        'Tellus lacus morbi sagittis lacus in. Amet nisl at \nmauris enim accumsan nisi, tincidunt vel. \nEnim ipsum, amet quis ullamcorper eget ut.',
-        background,
-        false,context);
+        '',
+        'Teach-here \nReach \nEverywhere',
+        'A platform that connects you with other talented forks',
+        earth,
+        false,context,'Create Connections','Explore the 3D library');
   }
 
 

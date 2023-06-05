@@ -24,10 +24,11 @@ class _NavBarState extends State<NavBar> {
 
 Widget DeskTopNavBar() {
   return Container(
+
       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       height: 70,
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        navLogo(),
+        companyLogo(),
         Row(
           children: [
             navButton('SME'),
@@ -51,7 +52,7 @@ Widget navButton(String text) {
           Text(text, style: TextStyle(color: Colors.white, fontSize: 18))));
 }
 
-Widget navLogo() {
+Widget companyLogo() {
   return Container(
     width: 150,
     decoration: BoxDecoration(

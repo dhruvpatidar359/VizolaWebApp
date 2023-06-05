@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 // import 'package:flutter_shaders/flutter_shaders.dart';
 import 'package:morphing_text/morphing_text.dart';
 import 'package:scrambletext/scrambletext.dart';
+import 'package:webapp/Widgets/tilt.dart';
 // import 'package:webapp/fractal_pyramid.dart';
 
 
@@ -33,7 +34,7 @@ class _Container1State extends State<Container1> {
 
   Widget DesktopContainer1() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: w! / 20, vertical: 20),
+      margin: EdgeInsets.symmetric(horizontal: w! / 10, vertical: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -115,14 +116,17 @@ class _Container1State extends State<Container1> {
                   ],
                 ),
               )),
-          const Expanded(
+           Expanded(
 
-            child: SizedBox(
+            child: Container(
               height: 543,
 
 
-              child:  TitleScreen(),
-
+              child:   TiltWidget(
+                  yaxis: (MediaQuery.of(context).size.width / 2) / 2,
+                  image: main_front,
+                  text: '',
+                  subText: ''),
             ),
           ),
         ],

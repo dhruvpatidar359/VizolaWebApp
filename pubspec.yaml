@@ -46,6 +46,8 @@ dependencies:
   metaballs: ^1.4.2
   glassmorphism_ui: ^0.3.0
   hover_card: ^1.1.1
+  footer: ^0.0.4
+  boxy: ^2.0.9
 
 
 dev_dependencies:
@@ -70,13 +72,23 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/roboto_font.ttf
+
   assets:
     - assets/images/vizola_logo.png
-    - assets/images/background.png
+    - assets/images/earth.png
+    - assets/images/money.png
+    - assets/images/main_front.png
 
   shaders:
     - assets/shaders/orb_shader.frag
     - assets/shaders/ui_glitch.frag
+
+
 
 
 

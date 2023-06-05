@@ -5,9 +5,9 @@ import '../colors.dart';
 import '../constants.dart';
 
 
-Widget CommonContainer(String s1, s2, s3, image, bool imageLeft,BuildContext context) {
+Widget CommonContainer(String s1, s2, s3, image, bool imageLeft,BuildContext context,String tiltMain,String tiltSub) {
   return Container(
-    margin: EdgeInsets.symmetric(horizontal: w! / 20, vertical: 20),
+    margin: EdgeInsets.symmetric(horizontal: w! / 10, vertical: 20),
     color: Colors.transparent,
     // padding: EdgeInsets.symmetric(horizontal: w! / 10, vertical: 30),
     child: Row(
@@ -21,8 +21,8 @@ Widget CommonContainer(String s1, s2, s3, image, bool imageLeft,BuildContext con
                       TiltWidget(
                           yaxis: (MediaQuery.of(context).size.width / 2) / 2,
                           image: image,
-                          text: 'Cliffs of Cinque',
-                          subText: 'Manarola, Italy'),
+                          text: tiltMain,
+                          subText: tiltSub),
                     ],
                   ),
                 ),)
@@ -90,8 +90,8 @@ Widget CommonContainer(String s1, s2, s3, image, bool imageLeft,BuildContext con
                         TiltWidget(
                             yaxis: (MediaQuery.of(context).size.width / 2) / 2,
                             image: image,
-                            text: 'DEEP DIVE INTO THE OCEAN',
-                            subText: 'Join Us'),
+                            text: tiltMain,
+                            subText:tiltSub),
                       ],
                     ),
                   ),

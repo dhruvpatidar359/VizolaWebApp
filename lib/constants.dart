@@ -2,7 +2,10 @@ double ?h;
 double ?w;
 
 const String logo = 'assets/images/vizola_logo.png';
-const String background = 'assets/images/background.png';
+const String main_front = 'assets/images/main_front.png';
+const String money = 'assets/images/money.png';
+const String earth = 'assets/images/earth.png';
+const String roboto_font = 'assets/fonts/roboto_font.ttf';
 
-var morphedList = ["Subject Matter Expert","3D Animator","Vizola"];
+var morphedList = ["Subject Matter Experts","3D Animators","Vizola"];
 

@@ -46,15 +46,7 @@ class _TitleScreenState extends State<TitleScreen>
   double _orbEnergy = 0;
   double _minOrbEnergy = 0;
 
-  // double get _finalReceiveLightAmt {
-  //   final light =
-  //       lerpDouble(_minReceiveLightAmt, _maxReceiveLightAmt, _orbEnergy) ?? 0;
-  //   return light + _pulseEffect.value * .05 * _orbEnergy;
-  // }
 
-  // double get _finalEmitLightAmt {
-  //   return lerpDouble(_minEmitLightAmt, _maxEmitLightAmt, _orbEnergy) ?? 0;
-  // }
 
   late final _pulseEffect = AnimationController(
     vsync: this,
@@ -65,62 +57,15 @@ class _TitleScreenState extends State<TitleScreen>
 
   Duration _getRndPulseDuration() => 100.ms + 200.ms * Random().nextDouble();
 
-  // double _getMinEnergyForDifficulty(int difficulty) {
-  //   if (difficulty == 1) {
-  //     return .3;
-  //   } else if (difficulty == 2) {
-  //     return .6;
-  //   }
-  //   return 0;
-  // }
+
 
   @override
   void initState() {
     super.initState();
     _pulseEffect.forward();
-    // _pulseEffect.addListener(_handlePulseEffectUpdate);
+
   }
 
-  // void _handlePulseEffectUpdate() {
-  //   if (_pulseEffect.status == AnimationStatus.completed) {
-  //     _pulseEffect.reverse();
-  //     _pulseEffect.duration = _getRndPulseDuration();
-  //   } else if (_pulseEffect.status == AnimationStatus.dismissed) {
-  //     _pulseEffect.duration = _getRndPulseDuration();
-  //     _pulseEffect.forward();
-  //   }
-  // }
-
-  // void _handleDifficultyPressed(int value) {
-  //   setState(() => _difficulty = value);
-  //   _bumpMinEnergy();
-  // }
-
-  // Future<void> _bumpMinEnergy([double amount = 0.1]) async {
-  //   setState(() {
-  //     _minOrbEnergy = _getMinEnergyForDifficulty(_difficulty) + amount;
-  //   });
-  //   await Future<void>.delayed(.2.seconds);
-  //   setState(() {
-  //     _minOrbEnergy = _getMinEnergyForDifficulty(_difficulty);
-  //   });
-  // }
-
-  // void _handleStartPressed() => _bumpMinEnergy(0.3);
-
-  // void _handleDifficultyFocused(int? value) {
-  //   setState(() {
-  //     _difficultyOverride = value;
-  //     if (value == null) {
-  //       _minOrbEnergy = _getMinEnergyForDifficulty(_difficulty);
-  //     } else {
-  //       _minOrbEnergy = _getMinEnergyForDifficulty(value);
-  //     }
-  //   });
-  // }
-
-  /// Update mouse position so the orbWidget can use it, doing it here prevents
-  /// btns from blocking the mouse-move events in the widget itself.
   void _handleMouseMove(PointerHoverEvent e) {
     setState(() {
       _mousePos = e.localPosition;
@@ -180,33 +125,6 @@ class _TitleScreenState extends State<TitleScreen>
   }
 }
 
-// class _LitImage extends StatelessWidget {
-//   const _LitImage({
-//     required this.color,
-//     required this.imgSrc,
-//     required this.pulseEffect,
-//     required this.lightAmt,
-//   });
-//   final Color color;
-//   final String imgSrc;
-//   final AnimationController pulseEffect;
-//   final double lightAmt;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final hsl = HSLColor.fromColor(color);
-//     return ListenableBuilder(
-//       listenable: pulseEffect,
-//       builder: (context, child) {
-//         return Image.asset(
-//           imgSrc,
-//           color: hsl.withLightness(hsl.lightness * lightAmt).toColor(),
-//           colorBlendMode: BlendMode.modulate,
-//         );
-//       },
-//     );
-//   }
-// }
 
 class _AnimatedColors extends StatelessWidget {
   const _AnimatedColors({
