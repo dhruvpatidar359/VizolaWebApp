@@ -2,7 +2,10 @@ import 'dart:html';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_glow/flutter_glow.dart';
 import 'package:webapp/constants.dart';
+
+import '../colors.dart';
 
 
 class NavBar extends StatefulWidget {
@@ -33,8 +36,19 @@ Widget DeskTopNavBar() {
           children: [
             navButton('SME'),
             navButton('MODELERS'),
-            navButton('ABOUT US'),
+            navButton('ABOUTUS'),
             navButton('FEEDBACK'),
+            Container(
+              height: 45,
+              margin: EdgeInsets.only(right: 10.0),
+              child: ElevatedButton.icon(
+                  style: ButtonStyle(
+                      backgroundColor:
+                      MaterialStateProperty.all(AppColors.primary)),
+                  onPressed: () {},
+                  icon: Icon(Icons.login),
+                  label: Text('Login')),
+            ),
           ],
         ),
 
@@ -46,10 +60,14 @@ Widget navButton(String text) {
       margin: EdgeInsets.symmetric(horizontal: 4),
       child: TextButton(
           onPressed: () {
-            window.alert("dhruv is the best person in the wolrd");
+            // window.alert("dhruv is the best person in the wolrd");
           },
           child:
-          Text(text, style: TextStyle(color: Colors.white, fontSize: 18))));
+          GlowText(
+            text,
+  style: TextStyle(color: Colors.white, fontSize: 18),
+          ),
+  ));
 }
 
 Widget companyLogo() {
@@ -59,3 +77,4 @@ Widget companyLogo() {
         image: DecorationImage(image: AssetImage(logo), fit: BoxFit.contain)),
   );
 }
+

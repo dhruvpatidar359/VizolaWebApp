@@ -1,8 +1,6 @@
-import 'package:boxy/flex.dart';
 import 'package:flutter/material.dart';
-import 'package:footer/footer.dart';
-import 'package:footer/footer_view.dart';
-
+import 'package:social_media_flutter/social_media_flutter.dart';
+import 'package:webapp/bars/footer/FooterCopyright.dart';
 
 class FooterBar extends StatefulWidget {
   const FooterBar({Key? key}) : super(key: key);
@@ -14,30 +12,75 @@ class FooterBar extends StatefulWidget {
 class _FooterBarState extends State<FooterBar> {
   @override
   Widget build(BuildContext context) {
-    return
-      Placeholder(
-
+    return SizedBox(
+      height: 200,
+      child: Placeholder(
+          color: Colors.transparent,
           child: Scaffold(
-
-            body: new FooterView(
-              children:<Widget>[
-                new Padding(
-                  padding: new EdgeInsets.only(top:200.0),
-                  child: Center(
-                    child: new Text('Scrollable View'),
+            body: Container(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SocialWidget(
+                          placeholderText: 'VIZOLA',
+                          //text visible to viewers
+                          iconData: SocialIconsFlutter.facebook_box,
+                          //use the respective social logo
+                          iconColor: Colors.yellowAccent,
+                          //(optional, default - grey)
+                          link:
+                              'https://in.linkedin.com/in/the-vizola-a221a6243?original_referer=https%3A%2F%2Fwww.google.com%2F',
+                          //provide the link
+                          placeholderStyle: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20), //placeholder text style
+                        ),
+                        SizedBox(width: 10),
+                        SocialWidget(
+                          placeholderText: 'VIZOLA',
+                          //text visible to viewers
+                          iconData: SocialIconsFlutter.instagram,
+                          //use the respective social logo
+                          iconColor: Colors.yellowAccent,
+                          //(optional, default - grey)
+                          link:
+                              'https://in.linkedin.com/in/the-vizola-a221a6243?original_referer=https%3A%2F%2Fwww.google.com%2F',
+                          //provide the link
+                          placeholderStyle: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20), //placeholder text style
+                        ),
+                        SizedBox(width: 10),
+                        SocialWidget(
+                          placeholderText: 'VIZOLA',
+                          //text visible to viewers
+                          iconData: SocialIconsFlutter.linkedin_box,
+                          //use the respective social logo
+                          iconColor: Colors.yellowAccent,
+                          //(optional, default - grey)
+                          link:
+                              'https://in.linkedin.com/in/the-vizola-a221a6243?original_referer=https%3A%2F%2Fwww.google.com%2F',
+                          //provide the link
+                          placeholderStyle: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20), //placeholder text style
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
-              footer: new Footer(
-                backgroundColor: Colors.black,
-                child: Text('I am a Customizable footer!!'),
-                padding: EdgeInsets.all(10.0),
+                  Container(
+                    color: Colors.black,
+                    padding: const EdgeInsets.all(10.0),
+                    child: FooterCopyright(),
+                  ),
+                ],
               ),
-              flex: 1, //default flex is 2
             ),
-          )
-      );
-
-
+          )),
+    );
   }
 }

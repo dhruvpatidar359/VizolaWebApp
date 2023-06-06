@@ -48,6 +48,11 @@ dependencies:
   hover_card: ^1.1.1
   footer: ^0.0.4
   boxy: ^2.0.9
+  flutter_glow: ^0.3.0
+  go_router: ^7.1.1
+  shared_preferences: ^2.1.1
+  social_media_flutter: ^0.0.2
+
 
 
 dev_dependencies:
@@ -78,15 +83,17 @@ flutter:
       fonts:
         - asset: assets/fonts/roboto_font.ttf
 
+    - family: socialIcons
+      fonts:
+        - asset: packages/social_media_flutter/fonts/icons.ttf
+
   assets:
     - assets/images/vizola_logo.png
     - assets/images/earth.png
     - assets/images/money.png
     - assets/images/main_front.png
 
-  shaders:
-    - assets/shaders/orb_shader.frag
-    - assets/shaders/ui_glitch.frag
+
 
 
 

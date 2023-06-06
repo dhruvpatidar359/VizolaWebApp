@@ -3,31 +3,33 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 // Remove 'styles.dart' import
 // Add this import
-import 'package:provider/provider.dart';
 
-import 'assets.dart';
+
+
 import 'home.dart';
 
-void main() {
-  if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
+Future<void> main() async {
+
     WidgetsFlutterBinding.ensureInitialized();
     // setWindowMinSize(const Size(800, 500));
-  }
+
   Animate.restartOnHotReload = true;
+  final SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
   runApp(
     // Edit from here...
-    FutureProvider<FragmentPrograms?>(
-      create: (context) => loadFragmentPrograms(),
-      initialData: null,
-      child: const NextGenApp(),
-    ),
+
+     NextGenApp(sharedPreferences: sharedPreferences,),
+
   );
 }
 
 class NextGenApp extends StatelessWidget {
-  const NextGenApp({super.key});
+  final SharedPreferences sharedPreferences;
+  const NextGenApp({  Key? key,
+    required this.sharedPreferences}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
