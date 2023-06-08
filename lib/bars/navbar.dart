@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_glow/flutter_glow.dart';
+import 'package:go_router/go_router.dart';
 import 'package:webapp/constants.dart';
 
 import '../colors.dart';
@@ -20,12 +21,12 @@ class _NavBarState extends State<NavBar> {
   Widget build(BuildContext context) {
     return
 
-    DeskTopNavBar();
+    DeskTopNavBar(context);
 
   }
 }
 
-Widget DeskTopNavBar() {
+Widget DeskTopNavBar(BuildContext context) {
   return Container(
 
       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -44,8 +45,8 @@ Widget DeskTopNavBar() {
               child: ElevatedButton.icon(
                   style: ButtonStyle(
                       backgroundColor:
-                      MaterialStateProperty.all(AppColors.primary)),
-                  onPressed: () {},
+                      MaterialStateProperty.all(AppColors.buttons)),
+                  onPressed: () {context.go("/login");},
                   icon: Icon(Icons.login),
                   label: Text('Login')),
             ),

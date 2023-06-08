@@ -98,7 +98,7 @@ class _Container1State extends State<Container1> {
                           child: ElevatedButton.icon(
                               style: ButtonStyle(
                                   backgroundColor:
-                                  MaterialStateProperty.all(AppColors.primary)),
+                                  MaterialStateProperty.all(AppColors.buttons)),
                               onPressed: () {},
                               icon: Icon(Icons.ads_click),
                               label: Text('Try a Demo')),

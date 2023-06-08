@@ -70,11 +70,11 @@ Widget CommonContainer(String s1, s2, s3, image, bool imageLeft,BuildContext con
                 icon: Icon(
                   Icons.arrow_forward_ios,
                   size: 20,
-                  color: AppColors.primary,
+                  color: AppColors.buttons,
                 ),
                 label: Text(
                   'Learn more',
-                  style: TextStyle(color: AppColors.primary),
+                  style: TextStyle(color: AppColors.buttons),
                 ))
           ],
         )),
@@ -157,11 +157,11 @@ Widget CommonContainerMobile(String s1, s2, s3, image, bool imageLeft) {
             icon: Icon(
               Icons.arrow_forward_ios,
               size: 20,
-              color: AppColors.primary,
+              color: AppColors.buttons,
             ),
             label: Text(
               'Learn more',
-              style: TextStyle(color: AppColors.primary),
+              style: TextStyle(color: AppColors.buttons),
             )),
       ],
     ),

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "217941143201",
+    "project_id": "webappvizola",
+    "storage_bucket": "webappvizola.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:217941143201:android:2b381a4c33f7ddb6628ae0",
+        "android_client_info": {
+          "package_name": "com.example.webapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "217941143201-s2rg6ltsren9k2sd3cj3hmlqndoctcq6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaR4JTDd-KZrALvFdlOZMHZz9qTQy3wBQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "217941143201-ditnqunc85vq0ihlh2t892i7v5dkj1ol.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "217941143201-5ni67rog1omcsbafsq67t7ihe9ubjin4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.webapp.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
