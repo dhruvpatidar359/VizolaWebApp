@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_media_flutter/social_media_flutter.dart';
-import 'package:webapp/bars/footer/FooterCopyright.dart';
+import 'package:webapp/features/Landing/bars/footer/FooterCopyright.dart';
 
 class FooterBar extends StatefulWidget {
   const FooterBar({Key? key}) : super(key: key);

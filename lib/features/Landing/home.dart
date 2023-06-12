@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:footer/footer.dart';
 import 'package:footer/footer_view.dart';
 import 'package:metaballs/metaballs.dart';
-import 'package:webapp/Containers/container1.dart';
-import 'package:webapp/bars/footer/footer.dart';
+import 'package:webapp/features/Landing/Containers/container1.dart';
+import 'package:webapp/features/Landing/bars/footer/footer.dart';
 
 import 'Containers/container2.dart';
 import 'Containers/container3.dart';
-import 'bars/navbar.dart';
-import 'constants.dart';
+import 'bars/navbar/navbar.dart';
+import '../../Constants/constants.dart';
 
 
 class Home extends StatefulWidget {
@@ -23,7 +23,10 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     w = MediaQuery.of(context).size.width;
     h = MediaQuery.of(context).size.height;
-    return Scaffold(body: GlassyMetaballs());
+    return 
+    
+    
+    Scaffold(body: GlassyMetaballs());
   }
 }
 
@@ -62,7 +65,7 @@ class GlassyMetaballs extends StatelessWidget {
         SingleChildScrollView(
           child: Container(
             child: Column(
-              children: [
+              children: const [
                 NavBar(),
                 SizedBox(height: 30),
                 Container1(),

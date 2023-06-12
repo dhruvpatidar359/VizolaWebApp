@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:webapp/Widgets/tilt.dart';
 
-import '../colors.dart';
-import '../constants.dart';
+
+import '../../../Constants/constants.dart';
 
 
 Widget CommonContainer(String s1, s2, s3, image, bool imageLeft,BuildContext context,String tiltMain,String tiltSub) {

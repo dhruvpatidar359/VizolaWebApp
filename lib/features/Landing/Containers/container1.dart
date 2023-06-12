@@ -7,8 +7,8 @@ import 'package:webapp/Widgets/tilt.dart';
 // import 'package:webapp/fractal_pyramid.dart';
 
 
-import '../colors.dart';
-import '../constants.dart';
+
+import '../../../Constants/constants.dart';
 
 
 class Container1 extends StatefulWidget {
@@ -68,19 +68,44 @@ class _Container1State extends State<Container1> {
 
 
                     ),
-                    ScrambleText(
-                      texts: morphedList,
-                      style:TextStyle(
+                    // ScrambleText(
+                    //   texts: morphedList,
+                    //   style:TextStyle(
+                    //       fontSize: w! / 20,
+                    //       fontWeight: FontWeight.bold,
+                    //       height: 1
+                    //   ),
+                    //   loop: true,
+                    //   words: "!@****#%^&*()",
+                    //   duration: Duration(seconds: 2),
+                    //   charDuration: Duration(milliseconds: 10),
+
+                    // ),
+                     Text("VIZOLA",style: TextStyle(
                           fontSize: w! / 20,
                           fontWeight: FontWeight.bold,
-                          height: 1
-                      ),
-                      loop: true,
-                      words: "!@****#%^&*()",
-                      duration: Duration(seconds: 2),
-                      charDuraction: Duration(milliseconds: 10),
+                          height: 1,
 
-                    ),
+
+                      ),),
+
+                      Text("3D Animators",style: TextStyle(
+                          fontSize: w! / 20,
+                          fontWeight: FontWeight.bold,
+                          height: 1,
+
+
+                      ),),
+                      
+                      Text("SMEs",style: TextStyle(
+                          fontSize: w! / 20,
+                          fontWeight: FontWeight.bold,
+                          height: 1,
+
+
+                      ),),
+
+                    const
                     SizedBox(
                       height: 30,
                     ),

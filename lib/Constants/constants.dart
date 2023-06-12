@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 double ?h;
 double ?w;
 
@@ -9,5 +11,13 @@ const String roboto_font = 'assets/fonts/roboto_font.ttf';
 const String modeler = 'assets/images/modeler.png';
 const String contentwriter = 'assets/images/contentwriter.png';
 
+
+
 var morphedList = ["Subject Matter Experts","3D Animators","Vizola"];
 
+
+class AppColors {
+  static Color buttons = Color.fromARGB(255, 0, 0, 0);
+  // static Color cards  = Color.
+
+}

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:webapp/bars/navbar.dart';
-import 'package:webapp/constants.dart';
+import 'package:webapp/features/Landing/bars/navbar/navbar.dart';
+import 'package:webapp/Constants/constants.dart';
 
 class DesktopFooterColumnOne extends StatelessWidget {
   @override
