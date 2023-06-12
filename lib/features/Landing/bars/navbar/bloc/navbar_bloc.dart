@@ -23,9 +23,7 @@ class NavBarBloc extends Bloc<NavBarEvent, NavBarState> {
       NavBarAuthenticatedEvent event, Emitter<NavBarState> emit) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     final isAuth = prefs.getBool('auth');
-    print(isAuth);
     if (isAuth == false) {
-      print("i am working");
 
       emit(NavBarNotAuthenticatedState());
     } else {

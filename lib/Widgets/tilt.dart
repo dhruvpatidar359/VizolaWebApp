@@ -59,7 +59,7 @@ class _TiltWidgetState extends State<TiltWidget> {
                     double yvalue = widget.yaxis - details.localPosition.dx;
                     double xvalue = (MediaQuery.of(context).size.height / 2) -
                         details.localPosition.dy;
-                    // print(xvalue);
+          
                     if (yvalue <= borderValueY && yvalue >= -borderValueY) {
                       setState(() {
                         double oldRange = (borderValueY - (-borderValueY));
@@ -83,7 +83,7 @@ class _TiltWidgetState extends State<TiltWidget> {
                     }
                   },
                   onExit: (event) {
-                    // print('exited');
+                  
                     setState(() {
                       y = 0.0;
                       x = 0.0;

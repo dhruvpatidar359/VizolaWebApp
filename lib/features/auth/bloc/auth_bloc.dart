@@ -18,7 +18,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<GoogleSignInRequested>((event, emit) async {
       emit(Loading());
       try {
-        await authRepository.signInWithGoogle();
+        await authRepository.signInWithGoogle(event.isSME);
 
         emit(Authenticated());
         

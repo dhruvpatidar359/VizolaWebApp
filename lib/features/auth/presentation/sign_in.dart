@@ -11,9 +11,9 @@ import '../bloc/auth_state.dart';
 final AuthBloc authBloc = AuthBloc(authRepository: AuthRepository());
 
 class LoginPage extends StatelessWidget {
-  void _authenticateWithGoogle(context) {
+  void _authenticateWithGoogle(context,bool isSME) {
     BlocProvider.of<AuthBloc>(context).add(
-      GoogleSignInRequested(),
+      GoogleSignInRequested(isSME),
     );
   }
 
@@ -75,7 +75,7 @@ class LoginPage extends StatelessWidget {
                           text: '3D Animator',
                           image: modeler,
                           onPressed: () {
-                            _authenticateWithGoogle(context);
+                            _authenticateWithGoogle(context,false);
                           }),
                       SizedBox(height: 16),
                       SizedBox(height: 16),
@@ -83,7 +83,7 @@ class LoginPage extends StatelessWidget {
                           text: 'SME',
                           image: contentwriter,
                           onPressed: () {
-                            _authenticateWithGoogle(context);
+                            _authenticateWithGoogle(context,true);
                           })
                     ],
                   ),
