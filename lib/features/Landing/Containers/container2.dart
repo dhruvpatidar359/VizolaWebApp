@@ -27,7 +27,7 @@ class _Container2State extends State<Container2> {
         'Teach-here \nReach \nEverywhere',
         'A platform that connects you with other talented forks',
         earth,
-        false,context,'Create Connections','Explore the 3D library');
+        false,context,'','');
   }
 
 

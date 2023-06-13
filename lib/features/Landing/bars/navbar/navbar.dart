@@ -89,6 +89,7 @@ Widget DeskTopNavBar(BuildContext context, String authText) {
 
 Widget navButton(String text) {
   return Container(
+      color: Colors.black54,
       margin: EdgeInsets.symmetric(horizontal: 4),
       child: TextButton(
         onPressed: () {
@@ -104,7 +105,17 @@ Widget navButton(String text) {
 Widget companyLogo() {
   return Container(
     width: 150,
-    decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage(logo), fit: BoxFit.contain)),
+    child: ClipRRect(
+      borderRadius: BorderRadius.circular(10),
+      child: Container(
+        color: Colors.black.withOpacity(0.5),
+        child: Center(
+          child: Image.asset(
+            logo,
+            fit: BoxFit.contain,
+          ),
+        ),
+      ),
+    ),
   );
 }

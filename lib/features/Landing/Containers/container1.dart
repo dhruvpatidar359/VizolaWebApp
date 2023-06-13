@@ -45,7 +45,7 @@ class _Container1State extends State<Container1> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     GradientText(
-                      'A Platform That\nConnects',
+                      'Vizola powered \nplatform\nthat connects ',
                       style: TextStyle(
                           fontSize: w! / 20,
                           fontWeight: FontWeight.bold,
@@ -81,7 +81,7 @@ class _Container1State extends State<Container1> {
                     //   charDuration: Duration(milliseconds: 10),
 
                     // ),
-                     Text("VIZOLA",style: TextStyle(
+                     Text("3D Animators",style: TextStyle(
                           fontSize: w! / 20,
                           fontWeight: FontWeight.bold,
                           height: 1,
@@ -89,7 +89,7 @@ class _Container1State extends State<Container1> {
 
                       ),),
 
-                      Text("3D Animators",style: TextStyle(
+                      Text("and",style: TextStyle(
                           fontSize: w! / 20,
                           fontWeight: FontWeight.bold,
                           height: 1,
@@ -116,28 +116,29 @@ class _Container1State extends State<Container1> {
                     SizedBox(
                       height: 20,
                     ),
-                    Row(
-                      children: [
-                        Container(
-                          height: 45,
-                          child: ElevatedButton.icon(
-                              style: ButtonStyle(
-                                  backgroundColor:
-                                  MaterialStateProperty.all(AppColors.buttons)),
-                              onPressed: () {},
-                              icon: Icon(Icons.ads_click),
-                              label: Text('Try a Demo')),
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Text(
-                          '— We belive in YOU',
-                          style:
-                          TextStyle(color: Colors.grey.shade400, fontSize: 16),
-                        )
-                      ],
-                    ),
+                    
+                    // Row(
+                    //   children: [
+                    //     Container(
+                    //       height: 45,
+                    //       child: ElevatedButton.icon(
+                    //           style: ButtonStyle(
+                    //               backgroundColor:
+                    //               MaterialStateProperty.all(AppColors.buttons)),
+                    //           onPressed: () {},
+                    //           icon: Icon(Icons.ads_click),
+                    //           label: Text('Try a Demo')),
+                    //     ),
+                    //     SizedBox(
+                    //       width: 20,
+                    //     ),
+                    //     Text(
+                    //       '— We belive in YOU',
+                    //       style:
+                    //       TextStyle(color: Colors.grey.shade400, fontSize: 16),
+                    //     )
+                    //   ],
+                    // ),
                   ],
                 ),
               )),

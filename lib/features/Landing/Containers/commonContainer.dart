@@ -65,17 +65,17 @@ Widget CommonContainer(String s1, s2, s3, image, bool imageLeft,BuildContext con
             SizedBox(
               height: 20,
             ),
-            TextButton.icon(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.arrow_forward_ios,
-                  size: 20,
-                  color: AppColors.buttons,
-                ),
-                label: Text(
-                  'Learn more',
-                  style: TextStyle(color: AppColors.buttons),
-                ))
+            // TextButton.icon(
+            //     onPressed: () {},
+            //     icon: Icon(
+            //       Icons.arrow_forward_ios,
+            //       size: 20,
+            //       color: AppColors.buttons,
+            //     ),
+            //     label: Text(
+            //       'Learn more',
+            //       style: TextStyle(color: AppColors.buttons),
+            //     ))
           ],
         )),
         !imageLeft

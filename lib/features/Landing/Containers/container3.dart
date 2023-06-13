@@ -25,7 +25,7 @@ class _Container3State extends State<Container3> {
         'Create Once \n Earn forever',
         'Tellus lacus morbi sagittis lacus in. Amet nisl at \nmauris enim accumsan nisi, tincidunt vel. \nEnim ipsum, amet quis ullamcorper eget ut.',
         money,
-        true,context,'Connect AND Earn','We are with you');
+        true,context,'','');
   }
 
 
