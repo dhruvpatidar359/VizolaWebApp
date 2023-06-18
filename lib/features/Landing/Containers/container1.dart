@@ -1,33 +1,21 @@
-
 import 'package:flutter/material.dart';
 // import 'package:flutter_shaders/flutter_shaders.dart';
-import 'package:morphing_text/morphing_text.dart';
-import 'package:scrambletext/scrambletext.dart';
 import 'package:webapp/Widgets/tilt.dart';
 // import 'package:webapp/fractal_pyramid.dart';
 
-
-
 import '../../../Constants/constants.dart';
-
 
 class Container1 extends StatefulWidget {
   const Container1({Key? key}) : super(key: key);
-
-
 
   @override
   _Container1State createState() => _Container1State();
 }
 
 class _Container1State extends State<Container1> {
-
   @override
   Widget build(BuildContext context) {
-    return
-
-      DesktopContainer1();
-
+    return DesktopContainer1();
   }
 
   //============== DESKTOP =============
@@ -40,115 +28,109 @@ class _Container1State extends State<Container1> {
         children: [
           Expanded(
               child: Container(
-                // color: Colors.red,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    GradientText(
-                      'Vizola powered \nplatform\nthat connects ',
-                      style: TextStyle(
-                          fontSize: w! / 20,
-                          fontWeight: FontWeight.bold,
-                          height: 1,
-
-
-                      ),
-                      gradient: LinearGradient(colors:  [
-                        Colors.yellow,
-                        Colors.amber,
-                        Colors.orange,
-                        Colors.deepOrange,
-                        Colors.cyan,
-                        Colors.teal,
-                        Colors.green,
-                        Colors.lightGreen,
-                        Colors.lime,
-
-                      ]),
-
-
-                    ),
-                    // ScrambleText(
-                    //   texts: morphedList,
-                    //   style:TextStyle(
-                    //       fontSize: w! / 20,
-                    //       fontWeight: FontWeight.bold,
-                    //       height: 1
-                    //   ),
-                    //   loop: true,
-                    //   words: "!@****#%^&*()",
-                    //   duration: Duration(seconds: 2),
-                    //   charDuration: Duration(milliseconds: 10),
-
-                    // ),
-                     Text("3D Animators",style: TextStyle(
-                          fontSize: w! / 20,
-                          fontWeight: FontWeight.bold,
-                          height: 1,
-
-
-                      ),),
-
-                      Text("and",style: TextStyle(
-                          fontSize: w! / 20,
-                          fontWeight: FontWeight.bold,
-                          height: 1,
-
-
-                      ),),
-                      
-                      Text("SMEs",style: TextStyle(
-                          fontSize: w! / 20,
-                          fontWeight: FontWeight.bold,
-                          height: 1,
-
-
-                      ),),
-
-                    const
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Text(
-                      'Changing the Way of Teaching',
-                      style: TextStyle(color: Colors.grey.shade400, fontSize: 16),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    
-                    // Row(
-                    //   children: [
-                    //     Container(
-                    //       height: 45,
-                    //       child: ElevatedButton.icon(
-                    //           style: ButtonStyle(
-                    //               backgroundColor:
-                    //               MaterialStateProperty.all(AppColors.buttons)),
-                    //           onPressed: () {},
-                    //           icon: Icon(Icons.ads_click),
-                    //           label: Text('Try a Demo')),
-                    //     ),
-                    //     SizedBox(
-                    //       width: 20,
-                    //     ),
-                    //     Text(
-                    //       '— We belive in YOU',
-                    //       style:
-                    //       TextStyle(color: Colors.grey.shade400, fontSize: 16),
-                    //     )
-                    //   ],
-                    // ),
-                  ],
+            // color: Colors.red,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                GradientText(
+                  'Vizola powered \nplatform\nthat connects ',
+                  style: TextStyle(
+                    fontSize: w! / 20,
+                    fontWeight: FontWeight.bold,
+                    height: 1,
+                  ),
+                  gradient: LinearGradient(colors: [
+                    Colors.yellow,
+                    Colors.amber,
+                    Colors.orange,
+                    Colors.deepOrange,
+                    Colors.cyan,
+                    Colors.teal,
+                    Colors.green,
+                    Colors.lightGreen,
+                    Colors.lime,
+                  ]),
                 ),
-              )),
-           Expanded(
+                // ScrambleText(
+                //   texts: morphedList,
+                //   style:TextStyle(
+                //       fontSize: w! / 20,
+                //       fontWeight: FontWeight.bold,
+                //       height: 1
+                //   ),
+                //   loop: true,
+                //   words: "!@****#%^&*()",
+                //   duration: Duration(seconds: 2),
+                //   charDuration: Duration(milliseconds: 10),
 
+                // ),
+                Text(
+                  "3D Animators",
+                  style: TextStyle(
+                    fontSize: w! / 20,
+                    fontWeight: FontWeight.bold,
+                    height: 1,
+                  ),
+                ),
+
+                Text(
+                  "and",
+                  style: TextStyle(
+                    fontSize: w! / 20,
+                    fontWeight: FontWeight.bold,
+                    height: 1,
+                  ),
+                ),
+
+                Text(
+                  "SMEs",
+                  style: TextStyle(
+                    fontSize: w! / 20,
+                    fontWeight: FontWeight.bold,
+                    height: 1,
+                  ),
+                ),
+
+                const SizedBox(
+                  height: 30,
+                ),
+                Text(
+                  'Changing the Way of Teaching',
+                  style: TextStyle(color: Colors.grey.shade400, fontSize: 16),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+
+                // Row(
+                //   children: [
+                //     Container(
+                //       height: 45,
+                //       child: ElevatedButton.icon(
+                //           style: ButtonStyle(
+                //               backgroundColor:
+                //               MaterialStateProperty.all(AppColors.buttons)),
+                //           onPressed: () {},
+                //           icon: Icon(Icons.ads_click),
+                //           label: Text('Try a Demo')),
+                //     ),
+                //     SizedBox(
+                //       width: 20,
+                //     ),
+                //     Text(
+                //       '— We belive in YOU',
+                //       style:
+                //       TextStyle(color: Colors.grey.shade400, fontSize: 16),
+                //     )
+                //   ],
+                // ),
+              ],
+            ),
+          )),
+          Expanded(
             child: Container(
               height: 543,
-
-
-              child:   TiltWidget(
+              child: TiltWidget(
                   yaxis: (MediaQuery.of(context).size.width / 2) / 2,
                   image: main_front,
                   text: '',
@@ -161,13 +143,12 @@ class _Container1State extends State<Container1> {
   }
 }
 
-
 class GradientText extends StatelessWidget {
   const GradientText(
-      this.text, {
-        required this.gradient,
-        this.style,
-      });
+    this.text, {
+    required this.gradient,
+    this.style,
+  });
 
   final String text;
   final TextStyle? style;

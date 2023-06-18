@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:webapp/features/Landing/home.dart';
 import 'package:webapp/features/auth/data/repositories/auth_repositories.dart';
 
@@ -10,8 +11,8 @@ import '../bloc/auth_state.dart';
 
 final AuthBloc authBloc = AuthBloc(authRepository: AuthRepository());
 
-class LoginPage extends StatelessWidget {
-  void _authenticateWithGoogle(context,bool isSME) {
+class SigninPage extends StatelessWidget {
+  void _authenticateWithGoogle(context, bool isSME) {
     BlocProvider.of<AuthBloc>(context).add(
       GoogleSignInRequested(isSME),
     );
@@ -75,7 +76,10 @@ class LoginPage extends StatelessWidget {
                           text: '3D Animator',
                           image: modeler,
                           onPressed: () {
-                            _authenticateWithGoogle(context,false);
+                            _authenticateWithGoogle(context, false);
+                            if(authRepositoryInstance.name != null) {
+                              context.go("/CreatorHome"); // to remove this
+                            }
                           }),
                       SizedBox(height: 16),
                       SizedBox(height: 16),
@@ -83,7 +87,10 @@ class LoginPage extends StatelessWidget {
                           text: 'SME',
                           image: contentwriter,
                           onPressed: () {
-                            _authenticateWithGoogle(context,true);
+                            _authenticateWithGoogle(context, true);
+                            if(authRepositoryInstance.name != null) {
+                              context.go("/CreatorHome"); // to remove this
+                            }
                           })
                     ],
                   ),

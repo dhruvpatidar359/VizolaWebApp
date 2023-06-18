@@ -24,6 +24,8 @@ class AuthRepository {
   String? imageUrl;
   String? uid;
   String? userEmail;
+  String? role;
+
 
   Future<void> signOut() async {
     await googleSignIn.signOut();
@@ -36,7 +38,9 @@ class AuthRepository {
     name = null;
     userEmail = null;
     imageUrl = null;
-    print(name);
+    role = null;
+  
+    // print(name);
     log("User signed out of Google account");
   }
 
@@ -74,6 +78,9 @@ class AuthRepository {
       userEmail = user.email;
       imageUrl = user.photoURL;
 
+
+      
+
       SharedPreferences prefs = await SharedPreferences.getInstance();
       prefs.setBool('auth', true);
 
@@ -86,16 +93,24 @@ class AuthRepository {
         print(isUserSME);
         if (isSME == isUserSME) {
           print('1');
+
+          // same as below
+          if(isSME == true) {
+            role = 'SME';
+          } else {
+            role = '3D Animator';
+          }
           // User is an SME and matches the signed-in user
           // Perform necessary actions for an SME
         } else {
           // User is not an SME or does not match the signed-in user
-          print('2');
+
+
           await signOut();
           // Perform necessary actions (e.g., show error message)
         }
       } else {
-        print('3');
+
         // User does not exist
         // Create a new document for the user in Firestore
         await firestoreInstance.collection('users').doc(uid).set({
@@ -105,9 +120,16 @@ class AuthRepository {
           'uid': uid,
         });
 
-        // Perform necessary actions for a new user
+        // for assigning the role to the user
+        if(isSME == true) {
+          role = 'SME';
+        } else {
+          role = '3D Animator';
+        }
+
       }
     }
+
 
     return user;
   }

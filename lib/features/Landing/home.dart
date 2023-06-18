@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:footer/footer.dart';
-import 'package:footer/footer_view.dart';
 import 'package:metaballs/metaballs.dart';
 import 'package:webapp/features/Landing/Containers/container1.dart';
 import 'package:webapp/features/Landing/bars/footer/footer.dart';

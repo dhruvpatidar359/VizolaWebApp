@@ -4,6 +4,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:webapp/features/SecHome/presentation/classScreen.dart';
 import 'package:webapp/features/auth/presentation/sign_in.dart';
 
 // Remove 'styles.dart' import
@@ -64,6 +65,7 @@ class _VizolaWebAppState extends State<VizolaWebApp> {
         create: (context) => AuthBloc(
             authRepository: RepositoryProvider.of<AuthRepository>(context)),
         child: MaterialApp.router(
+           debugShowCheckedModeBanner: false,
           routerConfig: _router,
           themeMode: ThemeMode.dark,
           darkTheme: ThemeData(brightness: Brightness.dark),
@@ -84,10 +86,19 @@ final GoRouter _router = GoRouter(
       pageBuilder: (_, state) {
         return CustomSlideTransition(
           key: state.pageKey,
-          child: LoginPage(),
+          child: SigninPage(),
         );
       },
-    )
+    ),
+    GoRoute(
+      path: "/CreatorHome",
+      pageBuilder: (_, state) {
+        return CustomSlideTransition(
+          key: state.pageKey,
+          child: ClassScreen(),
+        );
+      },
+    ),
   ],
 );
 
