@@ -90,9 +90,10 @@ class AuthRepository {
         // User already exists
         QueryDocumentSnapshot userSnapshot = isUserExistsDocs.first;
         bool isUserSME = userSnapshot.get('isSME') ?? false;
-        print(isUserSME);
+
         if (isSME == isUserSME) {
-          print('1');
+          print('loggedin');
+
 
           // same as below
           if(isSME == true) {
@@ -105,7 +106,7 @@ class AuthRepository {
         } else {
           // User is not an SME or does not match the signed-in user
 
-
+        print("logged in but signing out as role mismatch");
           await signOut();
           // Perform necessary actions (e.g., show error message)
         }
@@ -113,6 +114,8 @@ class AuthRepository {
 
         // User does not exist
         // Create a new document for the user in Firestore
+        print("creating a collection for the user");
+
         await firestoreInstance.collection('users').doc(uid).set({
           'isSME': isSME,
           'email': userEmail,

@@ -4,7 +4,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:webapp/features/SecHome/presentation/classScreen.dart';
+import 'package:webapp/features/SecHome/presentation/CreatorHome.dart';
 import 'package:webapp/features/auth/presentation/sign_in.dart';
 
 // Remove 'styles.dart' import
@@ -95,7 +95,7 @@ final GoRouter _router = GoRouter(
       pageBuilder: (_, state) {
         return CustomSlideTransition(
           key: state.pageKey,
-          child: ClassScreen(),
+          child: CreatorHome(),
         );
       },
     ),

@@ -59,6 +59,8 @@ dependencies:
   floating_tabbar: ^0.0.9
   zwidget: ^0.0.2
   animated_text_kit: ^4.2.2
+  aurora: ^1.0.0
+
   
 
 
@@ -106,6 +108,9 @@ flutter:
     - assets/images/alpha_icon.png
     - assets/images/beta_icon.png
     - assets/images/gamma_icon.png
+    - assets/images/gamma.png
+    - assets/images/beta.png
+    - assets/images/test.png
 
 
 

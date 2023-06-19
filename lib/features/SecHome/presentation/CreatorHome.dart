@@ -1,30 +1,26 @@
+import 'package:aurora/aurora.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_profile_picture/flutter_profile_picture.dart';
-import 'package:webapp/features/SecHome/presentation/vizoModuleCard.dart';
+import 'package:webapp/features/SecHome/presentation/ModuleCard.dart';
 import 'package:webapp/features/auth/data/repositories/auth_repositories.dart';
 import 'package:webapp/features/SecHome/presentation/disWidget.dart';
 
 import '../../../Constants/constants.dart';
 
-List<String> dataList = []; // Data for the list view
+
 int selectedChip = 0; // Index of the selected chip
 
 List<String> chipIcons = [alpha_icon,beta_icon,gamma_icon];
 
-List<String> dataForChip1 = ['Item 1', 'Item 2', 'Item 3'];
-List<String> dataForChip2 = ['Item 4', 'Item 5', 'Item 6'];
-List<String> dataForChip3 = ['Item 7', 'Item 8', 'Item 9'];
 
-
-
-class ClassScreen extends StatefulWidget {
-  const ClassScreen({super.key});
+class CreatorHome extends StatefulWidget {
+  const CreatorHome({super.key});
 
   @override
-  State<ClassScreen> createState() => _ClassScreenState();
+  State<CreatorHome> createState() => _CreatorHomeState();
 }
 
-class _ClassScreenState extends State<ClassScreen> {
+class _CreatorHomeState extends State<CreatorHome> {
   bool _isMenuOpen = false;
   int indexWD = 0;
 
@@ -86,13 +82,13 @@ class _ClassScreenState extends State<ClassScreen> {
                                 selectedChip = isSelected ? index : 0;
                                 // Update the list data based on the selected chip
                                 if (selectedChip == 1) {
-                                  dataList = dataForChip1;
+                                  // dataList = dataForChip1;
                                   
                                   
                                 } else if (selectedChip == 2) {
-                                  dataList = dataForChip2;
+                                  // dataList = dataForChip2;
                                 } else {
-                                  dataList = dataForChip3;
+                                  // dataList = dataForChip3;
                                 }
                                 indexWD = index;
                               });
@@ -107,21 +103,64 @@ class _ClassScreenState extends State<ClassScreen> {
                   child: Row(
                     children: [
                       // the widget for the discription of the class
-                
-              DisWidget(key:UniqueKey(),className: chipLabels[indexWD]),
+
+              DisWidget(key:UniqueKey(),className: chipLabels[indexWD], image: classImages[indexWD],content: classContents[indexWD], colorPair: classColors[indexWD],),
 
                       Container(
                         width: 1,
                         color: Colors.white,
                       ),
+
                       Expanded(
-                        child: SingleChildScrollView(
+
+                        child: Stack(
+                          children:[
+                            Positioned(
+                                bottom: -100,
+                                left: -250,
+                                child: Aurora(
+                                  size: 600,
+                                  colors: [classColors[indexWD].x, classColors[indexWD].y],
+                                )),
+                            Positioned(
+                                top: -10,
+                                right: -100,
+                                child: Aurora(
+                                  size: 300,
+                                  colors: [
+                                    Color(0x000000).withOpacity(1),
+                                    Color(0xff64b3f4).withOpacity(1)
+                                  ],
+                                )),
+                            Positioned(
+                                top: -50,
+                                right: -50,
+                                child: Aurora(
+                                  size: 200,
+                                  colors: [Color(0x000000), Color(0xFFf7f779)],
+                                )),
+
+                            Positioned(
+                                bottom: -50,
+                                right: -100,
+                                child: Aurora(
+                                  size: 200,
+                                  colors: [Color(0xFF595cff), Color(0xFFc6f8ff)],
+                                )),
 
 
-                          child: Wrap(
 
-                            children : List.generate(10, (index) => ModuleCard())
-                          ),
+                            SingleChildScrollView(
+
+
+                              child: Center(
+                                child: Wrap(
+
+                                    children : List.generate(10, (index) => ModuleCard())
+                                ),
+                              ),
+                            ),
+                          ]
                         ),
                       ),
                     ],

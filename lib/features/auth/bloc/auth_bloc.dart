@@ -19,9 +19,15 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(Loading());
       try {
         await authRepository.signInWithGoogle(event.isSME);
+        if(authRepositoryInstance.name != null) {
+          print("authenticated - authbloc");
+          emit(Authenticated());
 
-        emit(Authenticated());
-        
+        } else {
+          print("not - authenticated - authbloc");
+          emit(UnAuthenticated());
+        }
+
       } catch (e) {
         emit(AuthError(e.toString()));
         emit(UnAuthenticated());
@@ -29,9 +35,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     });
     // When User Presses the SignOut Button, we will send the SignOutRequested Event to the AuthBloc to handle it and emit the UnAuthenticated State
     on<SignOutRequested>((event, emit) async {
+
       emit(Loading());
       await authRepository.signOut();
       emit(UnAuthenticated());
+      print("signed out");
     });
   }
 }

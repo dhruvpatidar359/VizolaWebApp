@@ -1,15 +1,11 @@
-import 'dart:html';
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_glow/flutter_glow.dart';
 import 'package:go_router/go_router.dart';
+import 'package:webapp/Constants/constants.dart';
 import 'package:webapp/features/Landing/bars/navbar/bloc/navbar_bloc.dart';
 import 'package:webapp/features/Landing/bars/navbar/bloc/navbar_event.dart';
 import 'package:webapp/features/Landing/bars/navbar/bloc/navbar_state.dart';
-import 'package:webapp/Constants/constants.dart';
-import 'package:webapp/features/auth/data/repositories/auth_repositories.dart';
 
 final NavBarBloc navbloc = NavBarBloc();
 
@@ -55,6 +51,10 @@ class _NavBarState extends State<NavBar> {
 
 Widget DeskTopNavBar(BuildContext context, String authText) {
   return Container(
+      decoration: BoxDecoration(
+        color: Colors.black,
+        borderRadius: BorderRadius.circular(20),
+      ),
       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       height: 70,
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
@@ -89,7 +89,7 @@ Widget DeskTopNavBar(BuildContext context, String authText) {
 
 Widget navButton(String text) {
   return Container(
-      color: Colors.black54,
+
       margin: EdgeInsets.symmetric(horizontal: 4),
       child: TextButton(
         onPressed: () {
@@ -104,17 +104,11 @@ Widget navButton(String text) {
 
 Widget companyLogo() {
   return Container(
-    width: 150,
-    child: ClipRRect(
-      borderRadius: BorderRadius.circular(10),
-      child: Container(
-        color: Colors.black.withOpacity(0.5),
-        child: Center(
-          child: Image.asset(
-            logo,
-            fit: BoxFit.contain,
-          ),
-        ),
+  margin: EdgeInsets.only(left: 8),
+    child: Center(
+      child: Image.asset(
+        logo,
+        fit: BoxFit.contain,
       ),
     ),
   );

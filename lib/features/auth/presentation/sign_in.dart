@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:webapp/features/Landing/home.dart';
 import 'package:webapp/features/auth/data/repositories/auth_repositories.dart';
 
 import '../../../Constants/constants.dart';
@@ -13,7 +12,7 @@ final AuthBloc authBloc = AuthBloc(authRepository: AuthRepository());
 
 class SigninPage extends StatelessWidget {
   void _authenticateWithGoogle(context, bool isSME) {
-    BlocProvider.of<AuthBloc>(context).add(
+    authBloc.add(
       GoogleSignInRequested(isSME),
     );
   }
@@ -26,8 +25,8 @@ class SigninPage extends StatelessWidget {
         // TODO: implement listener
         if (state is Authenticated) {
           // Navigating to the dashboard screen if the user is authenticated
-          Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => const Home()));
+          print("got to CreatorHome");
+          context.go("/CreatorHome");
         }
         if (state is AuthError) {
           // Showing the error message if the user has entered invalid credentials
@@ -41,7 +40,7 @@ class SigninPage extends StatelessWidget {
             child: CircularProgressIndicator(),
           );
         }
-        if (state is UnAuthenticated) {
+
           // Showing the sign in form if the user is not authenticated
 
           return Container(
@@ -77,9 +76,6 @@ class SigninPage extends StatelessWidget {
                           image: modeler,
                           onPressed: () {
                             _authenticateWithGoogle(context, false);
-                            if(authRepositoryInstance.name != null) {
-                              context.go("/CreatorHome"); // to remove this
-                            }
                           }),
                       SizedBox(height: 16),
                       SizedBox(height: 16),
@@ -88,9 +84,6 @@ class SigninPage extends StatelessWidget {
                           image: contentwriter,
                           onPressed: () {
                             _authenticateWithGoogle(context, true);
-                            if(authRepositoryInstance.name != null) {
-                              context.go("/CreatorHome"); // to remove this
-                            }
                           })
                     ],
                   ),
@@ -99,8 +92,10 @@ class SigninPage extends StatelessWidget {
             ),
           );
         }
-        return Container(child: Text("404"));
-      },
+
+
+
+
     );
   }
 }
