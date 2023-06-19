@@ -52,7 +52,7 @@ class _NavBarState extends State<NavBar> {
 Widget DeskTopNavBar(BuildContext context, String authText) {
   return Container(
       decoration: BoxDecoration(
-        color: Colors.black,
+        color: Colors.transparent,
         borderRadius: BorderRadius.circular(20),
       ),
       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
