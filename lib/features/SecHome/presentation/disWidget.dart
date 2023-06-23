@@ -103,8 +103,9 @@ class _DisWidgetState extends State<DisWidget> {
     return SizedBox(
 
       child: DefaultTextStyle(
+        
         style: const TextStyle(
-            fontSize: 20.0, fontFamily: 'Agne', color: Colors.white),
+            fontSize: 20.0, fontFamily: 'Agne', color: Colors.white,),
         child: AnimatedTextKit(
           totalRepeatCount: 1,
           animatedTexts: [

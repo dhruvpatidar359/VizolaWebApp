@@ -60,6 +60,9 @@ dependencies:
   zwidget: ^0.0.2
   animated_text_kit: ^4.2.2
   aurora: ^1.0.0
+  image_network: ^2.5.4+1
+  badges: ^3.1.1
+  google_fonts: ^5.1.0
 
   
 
@@ -111,6 +114,10 @@ flutter:
     - assets/images/gamma.png
     - assets/images/beta.png
     - assets/images/test.png
+    - assets/images/a.png
+    - assets/images/b.png
+    - assets/images/y.png
+
 
 
 

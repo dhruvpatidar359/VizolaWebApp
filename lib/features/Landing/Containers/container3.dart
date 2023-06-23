@@ -22,8 +22,8 @@ class _Container3State extends State<Container3> {
 
     return CommonContainer(
         '',
-        'Create Once \n Earn forever',
-        'Tellus lacus morbi sagittis lacus in. Amet nisl at \nmauris enim accumsan nisi, tincidunt vel. \nEnim ipsum, amet quis ullamcorper eget ut.',
+        'Create Once Earn Forever',
+        '',
         money,
         true,context,'','');
   }

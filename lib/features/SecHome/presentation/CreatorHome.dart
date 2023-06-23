@@ -6,6 +6,8 @@ import 'package:go_router/go_router.dart';
 import 'package:webapp/features/SecHome/bloc/CreatorHome_bloc.dart';
 import 'package:webapp/features/SecHome/bloc/CreatorHome_event.dart';
 import 'package:webapp/features/SecHome/bloc/CreatorHome_state.dart';
+import 'package:webapp/features/SecHome/data/CardModel.dart';
+import 'package:webapp/features/SecHome/data/CreatorHomeRepo.dart';
 import 'package:webapp/features/SecHome/presentation/ModuleCard.dart';
 import 'package:webapp/features/SecHome/presentation/disWidget.dart';
 import 'package:webapp/features/auth/data/repositories/auth_repositories.dart';
@@ -16,6 +18,7 @@ int selectedChip = 0; // Index of the selected chip
 
 List<String> chipIcons = [alpha_icon, beta_icon, gamma_icon];
 final CreatorHomeBloc creatorHomeBloc = CreatorHomeBloc();
+final CreatorHomeRepositry creatorHomeRepositry = CreatorHomeRepositry();
 
 class CreatorHome extends StatefulWidget {
   const CreatorHome({super.key});
@@ -26,7 +29,12 @@ class CreatorHome extends StatefulWidget {
 
 class _CreatorHomeState extends State<CreatorHome> {
   int indexWD = 0;
+  List<CardModel> cardModel = [];
 
+  void getCards(String className) async {
+    cardModel = await creatorHomeRepositry.fetchCards(className);
+    print(cardModel[0].title);
+  }
 
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -39,210 +47,178 @@ class _CreatorHomeState extends State<CreatorHome> {
   Widget build(BuildContext context) {
     return BlocConsumer<CreatorHomeBloc, CreatorHomeState>(
       bloc: creatorHomeBloc,
-  listener: (context, state) {
-    // TODO: implement listener
-    if(state is NotAuthCreatorHomeState) {
-      context.go("/signin");
-    }
-  },
-  builder: (context, state) {
-    if(state is AuthCreatorHomeState) {
-      return Scaffold(
-        backgroundColor: Colors.black,
-        appBar: appBar(),
-        body: Stack(
-          children: [
-            Container(),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16.0),
-                        child: Wrap(
-                          spacing: 8.0,
-                          children:
-                          List<Widget>.generate(chipLabels.length, (index) {
-                            return ChoiceChip(
-                              label: Row(
-                                children: [
-                                  Container(
-                                    height: 32,
-                                    width: 32,
-                                    decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                          image: AssetImage(chipIcons[index]),
-                                        )),
-                                  ),
-                                  SizedBox(
-                                    width: 4.0,
-                                  ),
-                                  Text(chipLabels[index])
-                                ],
-                              ),
-                              selected: selectedChip == index,
-                              onSelected: (isSelected) {
-                                setState(() {
-                                  selectedChip = isSelected ? index : 0;
-                                  // Update the list data based on the selected chip
-                                  if (selectedChip == 1) {
-                                    // dataList = dataForChip1;
-                                  } else if (selectedChip == 2) {
-                                    // dataList = dataForChip2;
-                                  } else {
-                                    // dataList = dataForChip3;
-                                  }
-                                  indexWD = index;
-                                });
-                              },
-                            );
-                          }),
-                        ),
-                      )
-                    ],
-                  ),
-                  Expanded(
-                    child: Row(
-                      children: [
-                        // the widget for the discription of the class
-
-                        DisWidget(
-                          key: UniqueKey(),
-                          className: chipLabels[indexWD],
-                          image: classImages[indexWD],
-                          content: classContents[indexWD],
-                          colorPair: classColors[indexWD],
-                        ),
-
-                        Container(
-                          width: 1,
-                          color: Colors.white,
-                        ),
-
-                        Expanded(
-                          child: Stack(children: [
-                            Positioned(
-                                bottom: -100,
-                                left: -250,
-                                child: Aurora(
-                                  size: 600,
-                                  colors: [
-                                    classColors[indexWD].x,
-                                    classColors[indexWD].y
-                                  ],
-                                )),
-                            Positioned(
-                                top: -10,
-                                right: -100,
-                                child: Aurora(
-                                  size: 300,
-                                  colors: [
-                                    Color(0x000000).withOpacity(1),
-                                    Color(0xff64b3f4).withOpacity(1)
-                                  ],
-                                )),
-                            Positioned(
-                                top: -50,
-                                right: -50,
-                                child: Aurora(
-                                  size: 200,
-                                  colors: [Color(0x000000), Color(0xFFf7f779)],
-                                )),
-                            Positioned(
-                                bottom: -50,
-                                right: -100,
-                                child: Aurora(
-                                  size: 200,
-                                  colors: [
-                                    Color(0xFF595cff),
-                                    Color(0xFFc6f8ff)
-                                  ],
-                                )),
-                            SingleChildScrollView(
-                              child: Center(
-                                child: Wrap(
-                                    children: List.generate(
-                                        10, (index) => ModuleCard())),
-                              ),
+      listener: (context, state) {
+        // TODO: implement listener
+        if (state is NotAuthCreatorHomeState) {
+          context.go("/signin");
+        }
+      },
+      builder: (context, state) {
+        if (state is AuthCreatorHomeState) {
+          getCards('alpha');
+          return Scaffold(
+            body: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CustomTopBar(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(8, 0, 8, 24),
+                      child: Wrap(
+                        spacing: 8.0,
+                        children:
+                            List<Widget>.generate(chipLabels.length, (index) {
+                          return ChoiceChip(
+                            label: Row(
+                              children: [
+                                Container(
+                                  height: 32,
+                                  width: 32,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                    image: AssetImage(chipIcons[index]),
+                                  )),
+                                ),
+                                const SizedBox(
+                                  width: 4.0,
+                                ),
+                                Text(chipLabels[index])
+                              ],
                             ),
-                          ]),
-                        ),
-                      ],
+                            selected: selectedChip == index,
+                            onSelected: (isSelected) {
+                              setState(() {
+                                selectedChip = isSelected ? index : 0;
+                                // Update the list data based on the selected chip
+                                if (selectedChip == 1) {
+                                  // dataList = dataForCwhip1;
+                                  getCards('gamma');
+                                  print(cardModel[0].title);
+                                  
+                                } else if (selectedChip == 2) {
+                                  // dataList = dataForChip2;
+
+                                  getCards('beta');
+                                  print(cardModel[0].title);
+                                } else {
+                                  // dataList = dataForChip3;
+
+                                  getCards('alpha');
+                                  print(cardModel[0].title);
+                                }
+                                indexWD = index;
+                              });
+                            },
+                          );
+                        }),
+                      ),
+                    )
+                  ],
+                ),
+                Expanded(
+                    child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount:
+                          3, // Adjust the number of cards per row as needed
+                      mainAxisSpacing: 0,
+                      crossAxisSpacing: 0,
                     ),
-                  )
-                ],
+                    itemCount: cardModel.length,
+                    itemBuilder: (context, index) {
+                      final card = cardModel[index];
+                      return PopularCard1(
+                        classImage: classImages[indexWD],
+                        title: card.title,
+                      );
+                    },
+                  ),
+                ))
+              ],
+            ),
+          );
+        }
+
+        return Container(child: const Text("you are still unauthenticated"));
+      },
+    );
+  }
+}
+
+class CustomTopBar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 60,
+      color: Colors.transparent,
+      child: Row(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Image.asset(
+              logo,
+              width: 100,
+              height: 200,
+            ),
+          ),
+          const Expanded(
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: 'Search',
+                prefixIcon: Icon(Icons.search),
+                border: InputBorder.none,
               ),
             ),
-
-            // Menu button
-            // Positioned(
-            //   top: 16.0,
-            //   left: 16.0,
-            //   child: IconButton(
-            //     onPressed: _toggleMenu,
-            //     icon: Icon(Icons.menu),
-            //   ),
-            // ),
-          ],
-        ),
-      );
-    }
-
-    return Container(child : Text("you are still unauthenticated"));
-  },
-);
+          ),
+          Text(authRepositoryInstance.role == "SME" ? "SME" : "3D ANIMATOR"),
+          InkWell(
+            onTap: () {
+              // Action for profile picture tap
+              _openDrawer(context);
+            },
+            child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: ProfilePicture(
+                  img: authRepositoryInstance.imageUrl,
+                  fontsize: 20.0,
+                  name: '',
+                  radius: 20.0,
+                )),
+          ),
+        ],
+      ),
+    );
   }
 
-  AppBar appBar() {
-    return AppBar(
-      backgroundColor: Colors.transparent,
-      shadowColor: Colors.transparent,
-      title: TextField(
-        decoration: InputDecoration(
-          hintText: 'Search...',
-          filled: true,
-          fillColor: Colors.white10,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(24.0),
-            borderSide: BorderSide.none,
+  void _openDrawer(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+          height: 200,
+          child: Column(
+            children: [
+              ListTile(
+                leading: const Icon(Icons.settings),
+                title: const Text('Settings'),
+                onTap: () {
+                  // Action for settings option
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.logout),
+                title: const Text('Logout'),
+                onTap: () {
+                  // Action for logout option
+                },
+              ),
+            ],
           ),
-          contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-          suffixIcon: IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {
-              // Handle search button press
-            },
-          ),
-        ),
-      ),
-      leading: IconButton(onPressed: () {}, icon: Icon(Icons.menu)),
-      actions: [
-        IconButton(
-          icon: Icon(Icons.mail),
-          onPressed: () {
-            // Handle mail button press
-          },
-        ),
-        IconButton(
-          icon: Icon(Icons.notifications),
-          onPressed: () {
-            // Handle notification button press
-          },
-        ),
-        ProfilePicture(
-          name: authRepositoryInstance.name ?? "Null",
-          role: authRepositoryInstance.role,
-          radius: 20,
-          fontsize: 21,
-          tooltip: true,
-          img: authRepositoryInstance.imageUrl,
-        ),
-        SizedBox(width: 10),
-      ],
+        );
+      },
     );
   }
 }

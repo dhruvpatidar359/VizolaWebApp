@@ -25,7 +25,7 @@ class _Container2State extends State<Container2> {
     return CommonContainer(
         '',
         'Teach-here \nReach \nEverywhere',
-        'A platform that connects you with other talented forks',
+        '',
         earth,
         false,context,'','');
   }

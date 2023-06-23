@@ -17,6 +17,9 @@ const String gamma_icon = 'assets/images/gamma_icon.png';
 const String beta = 'assets/images/beta.png';
 const String gamma = 'assets/images/gamma.png';
 const String test = 'assets/images/test.png';
+const String a = 'assets/images/a.png';
+const String b = 'assets/images/b.png';
+const String y = 'assets/images/y.png';
 
 // This location is for only content purpose
 
@@ -25,7 +28,7 @@ const String betaContent = 'Less challenging projects with optimum rewards';
 const String gammaContent = 'Bite sized projects for beginners to start with';
 
 List<String> chipLabels = ['Alpha Class', 'Beta Class', 'Gamma Class'];
-List<String> classImages = [alpha, beta, gamma];
+List<String> classImages = [a, b, y];
 List<String> classContents = [alphaContent, betaContent, gammaContent];
 List<Pair> classColors = [
   Pair(

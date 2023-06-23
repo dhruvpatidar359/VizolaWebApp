@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:webapp/features/SecHome/presentation/CreatorHome.dart';
+import 'package:webapp/features/SecHome/presentation/ModuleCard.dart';
 import 'package:webapp/features/auth/presentation/sign_in.dart';
 
 // Remove 'styles.dart' import
@@ -51,11 +52,6 @@ class VizolaWebApp extends StatefulWidget {
 }
 
 class _VizolaWebAppState extends State<VizolaWebApp> {
-  // @override
-  // void initState()  {
-  //   super.initState();
-  //    authRepositoryInstance.getUser();
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +75,7 @@ final GoRouter _router = GoRouter(
   routes: [
     GoRoute(
       path: "/",
-      builder: (context, state) => const Home(),
+      builder: (context, state) => const CreatorHome(),
     ),
     GoRoute(
       path: "/signin",
@@ -110,6 +106,7 @@ class CustomSlideTransition extends CustomTransitionPage<void> {
             return SlideTransition(
               position: animation.drive(
                 Tween(
+
                   begin: const Offset(1.5, 0),
                   end: Offset.zero,
                 ).chain(
