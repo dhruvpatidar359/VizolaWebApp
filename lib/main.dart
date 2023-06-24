@@ -75,7 +75,7 @@ final GoRouter _router = GoRouter(
   routes: [
     GoRoute(
       path: "/",
-      builder: (context, state) => const CreatorHome(),
+      builder: (context, state) => const Home(),
     ),
     GoRoute(
       path: "/signin",
