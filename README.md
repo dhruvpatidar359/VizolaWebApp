@@ -7,9 +7,10 @@ This is a flutter webapp that uses -
 
 ## Images
 ![image](https://github.com/dhruvpatidar359/VizolaWebApp/assets/103873587/f631a90d-701e-48fd-9253-5b5de003cadf)
+![image](https://github.com/dhruvpatidar359/VizolaWebApp/assets/103873587/a980601c-27d9-4437-a793-bba129323a50)
 ![image](https://github.com/dhruvpatidar359/VizolaWebApp/assets/103873587/0a09b67a-8b16-400e-8c20-139bbef51c6b)
 ![image](https://github.com/dhruvpatidar359/VizolaWebApp/assets/103873587/5e717f64-f73f-4912-8c17-ee3faa44efad)
-![image](https://github.com/dhruvpatidar359/VizolaWebApp/assets/103873587/a980601c-27d9-4437-a793-bba129323a50)
+
 
 
 
